@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     // here to check if the user succesfully switched the permissions
     func appMovedToForeground() {
-
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -37,52 +37,53 @@ class ViewController: UIViewController {
         self.bluenet = Bluenet();
         self.bluenetLocalization = BluenetLocalization();
         
-        // EXAMPLES: these show how you can use the bluenet lib
-        
-        
-        
-        // EXAMPLE I: Scanning for all BLE devices
-        
-            // first we subscribe to the event that will tell us all about the scan results.
-            self.bluenet.on("advertisementData", {data -> Void in
-                if let castData = data as? Advertisement {
-                    print (castData.getJSON()); // print it to the console in JSON format
-                }
-            })
-            
-            // start the scanning
-            self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
-                .then({_ in self.bluenet.startScanning()}) // once the lib is ready, start scanning
-                .error({err in print("error in example1 \(err)")}) // in case an error occurs, print it here.
-            
-        
-            // the scanning will give us the peripheral UUIDs like "5F1534C4-37A6-9BB3-08F9-86E092AB19D7"
-            // we will use this uuid in the next example.
-            
-        // EXAMPLE II: connecting to a device and disconnect again
-            self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
-                .then({_ in return self.bluenet.connect("5F1534C4-37A6-9BB3-08F9-86E092AB19D7")})
-                .then({_ in return self.bluenet.disconnect()})
-                .error({err in print("error in example 2 \(err)")})
-        
-        // EXAMPLE III: switching on a crownstone
-            // we return the promises so we can chain the then() calls.
-            self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
-                .then({_ in return self.bluenet.connect("5F1534C4-37A6-9BB3-08F9-86E092AB19D7")}) // connect
-                .then({_ in return self.bluenet.setSwitchState(1)}) // switch
-                .then({_ in return self.bluenet.disconnect()}) // disconnect
-                .error({err in print("error in example 2 \(err)")}) // catch errors
-        
-        // EXAMPLE IV
-            //            ...
-        
-
-        
+        // we bind a listener to the UIApplicationDidBecomeActiveNotification event to check if the user successfully turned on Bluetooth in the settings. If not, we can annoy him.
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewController.appMovedToForeground), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
     }
     
+    /**
+     *   EXAMPLE I: Scanning for all BLE devices
+     *      The scanning will give us the peripheral UUIDs like "5F1534C4-37A6-9BB3-08F9-86E092AB19D7"
+     *      We will use this uuid in the next example.
+     */
+    func scanForBleDevices() {
+        // first we subscribe to the event that will tell us all about the scan results.
+        self.bluenet.on("advertisementData", {data -> Void in
+            if let castData = data as? Advertisement {
+                print (castData.getJSON()); // print it to the console in JSON format
+            }
+        })
+        
+        // start the scanning
+        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+            .then({_ in self.bluenet.startScanning()}) // once the lib is ready, start scanning
+            .error({err in print("error in example1 \(err)")}) // in case an error occurs, print it here.
+    }
+    
+    
+    /**
+     *   EXAMPLE II: connecting to a device and disconnect again
+     */
+    func connectAndDisconnectForFun() {
+        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+            .then({_ in return self.bluenet.connect("5F1534C4-37A6-9BB3-08F9-86E092AB19D7")})
+            .then({_ in return self.bluenet.disconnect()})
+            .error({err in print("error in example 2 \(err)")})
+    }
+    
+    /**
+     *   EXAMPLE III: switching on a crownstone
+     */
+    func switchCrownstone() {
+        // we return the promises so we can chain the then() calls.
+        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+            .then({_ in return self.bluenet.connect("5F1534C4-37A6-9BB3-08F9-86E092AB19D7")}) // connect
+            .then({_ in return self.bluenet.setSwitchState(1)}) // switch
+            .then({_ in return self.bluenet.disconnect()}) // disconnect
+            .error({err in print("error in example 2 \(err)")}) // catch errors
+    }
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
