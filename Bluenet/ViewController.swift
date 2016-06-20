@@ -30,7 +30,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
         // important, set the viewcontroller and the appname in the library so we can trigger 
         // alerts for bluetooth and navigation usage.
         BluenetLibIOS.setBluenetGlobals(viewController: self, appName: "Crownstone")
