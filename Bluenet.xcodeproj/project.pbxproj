@@ -83,6 +83,8 @@
 		FAA421801D0714A60053B335 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FAA9435A1D1069CA0043087C /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		FACC56331D18519A00028E6F /* BluenetLibIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLibIOS.framework; path = Carthage/Build/iOS/BluenetLibIOS.framework; sourceTree = "<group>"; };
+		FACC56381D18528900028E6F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FACC56391D18529000028E6F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				FAA421801D0714A60053B335 /* Cartfile */,
+				FACC56381D18528900028E6F /* .gitignore */,
+				FACC56391D18529000028E6F /* README.md */,
 				FACC56331D18519A00028E6F /* BluenetLibIOS.framework */,
 				FA4E028A1D085E370086E2BF /* SwiftyJSON.framework */,
 				FA4E027C1D085DF20086E2BF /* CryptoSwift.framework */,
