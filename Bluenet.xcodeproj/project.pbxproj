@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2916751D2AA4AF0096709B /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA2916721D2AA4A90096709B /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA2916761D2AA4B60096709B /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2916721D2AA4A90096709B /* BluenetLibIOS.framework */; };
 		FA3C19191CBBE1F300A11CF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C19181CBBE1F300A11CF7 /* AppDelegate.swift */; };
 		FA3C191B1CBBE1F300A11CF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C191A1CBBE1F300A11CF7 /* ViewController.swift */; };
 		FA3C191E1CBBE1F300A11CF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3C191C1CBBE1F300A11CF7 /* Main.storyboard */; };
@@ -23,8 +25,6 @@
 		FA4E02951D085E530086E2BF /* OMGHTTPURLRQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E027D1D085DF20086E2BF /* OMGHTTPURLRQ.framework */; };
 		FA4E02961D085E530086E2BF /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4E027E1D085DF20086E2BF /* PromiseKit.framework */; };
 		FAA9435B1D1069CA0043087C /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9435A1D1069CA0043087C /* JSONUtils.swift */; };
-		FACC56361D1851A800028E6F /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FACC56331D18519A00028E6F /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FACC56371D1851AE00028E6F /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACC56331D18519A00028E6F /* BluenetLibIOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FA4E02831D085E240086E2BF /* CryptoSwift.framework in Embed Frameworks */,
-				FACC56361D1851A800028E6F /* BluenetLibIOS.framework in Embed Frameworks */,
+				FA2916751D2AA4AF0096709B /* BluenetLibIOS.framework in Embed Frameworks */,
 				FA4E02851D085E240086E2BF /* OMGHTTPURLRQ.framework in Embed Frameworks */,
 				FA4E02871D085E240086E2BF /* PromiseKit.framework in Embed Frameworks */,
 				FA4E028D1D085E3A0086E2BF /* SwiftyJSON.framework in Embed Frameworks */,
@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA2916721D2AA4A90096709B /* BluenetLibIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLibIOS.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/BluenetWorkspace-ctwjboexknfjsaemurnuvcntfmgk/Build/Products/Debug-iphoneos/BluenetLibIOS.framework"; sourceTree = "<group>"; };
 		FA3C19151CBBE1F300A11CF7 /* Bluenet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bluenet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3C19181CBBE1F300A11CF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA3C191A1CBBE1F300A11CF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		FA4E028A1D085E370086E2BF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		FAA421801D0714A60053B335 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FAA9435A1D1069CA0043087C /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
-		FACC56331D18519A00028E6F /* BluenetLibIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLibIOS.framework; path = Carthage/Build/iOS/BluenetLibIOS.framework; sourceTree = "<group>"; };
 		FACC56381D18528900028E6F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FACC56391D18529000028E6F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,8 +93,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4E02931D085E530086E2BF /* SwiftyJSON.framework in Frameworks */,
-				FACC56371D1851AE00028E6F /* BluenetLibIOS.framework in Frameworks */,
 				FA4E02941D085E530086E2BF /* CryptoSwift.framework in Frameworks */,
+				FA2916761D2AA4B60096709B /* BluenetLibIOS.framework in Frameworks */,
 				FA4E02951D085E530086E2BF /* OMGHTTPURLRQ.framework in Frameworks */,
 				FA4E02961D085E530086E2BF /* PromiseKit.framework in Frameworks */,
 			);
@@ -123,7 +123,7 @@
 				FAA421801D0714A60053B335 /* Cartfile */,
 				FACC56381D18528900028E6F /* .gitignore */,
 				FACC56391D18529000028E6F /* README.md */,
-				FACC56331D18519A00028E6F /* BluenetLibIOS.framework */,
+				FA2916721D2AA4A90096709B /* BluenetLibIOS.framework */,
 				FA4E028A1D085E370086E2BF /* SwiftyJSON.framework */,
 				FA4E027C1D085DF20086E2BF /* CryptoSwift.framework */,
 				FA4E027D1D085DF20086E2BF /* OMGHTTPURLRQ.framework */,

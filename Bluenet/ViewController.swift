@@ -36,6 +36,9 @@ class ViewController: UIViewController {
         self.bluenet = Bluenet();
         self.bluenetLocalization = BluenetLocalization();
         
+//        trackIBeacon()
+        scanForCrownstones()
+        
         // we bind a listener to the UIApplicationDidBecomeActiveNotification event to check if the user successfully turned on Bluetooth in the settings. If not, we can annoy him.
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: #selector(ViewController.appMovedToForeground), name: UIApplicationDidBecomeActiveNotification, object: nil)
@@ -63,7 +66,27 @@ class ViewController: UIViewController {
     
     
     /**
-     *   EXAMPLE II: connecting to a device and disconnect again
+     *   EXAMPLE II: Scanning for all Crownstones
+     *      The scanning will give us the peripheral UUIDs like "5F1534C4-37A6-9BB3-08F9-86E092AB19D7"
+     *      We will use this uuid in the next example.
+     */
+    func scanForCrownstones() {
+        // first we subscribe to the event that will tell us all about the scan results.
+        self.bluenet.on("advertisementData", {data -> Void in
+            if let castData = data as? Advertisement {
+                print (castData.getJSON()); // print it to the console in JSON format
+            }
+        })
+        
+        // start the scanning
+        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+            .then({_ in self.bluenet.startScanningForCrownstones()}) // once the lib is ready, start scanning
+            .error({err in print("error in example1 \(err)")}) // in case an error occurs, print it here.
+    }
+    
+    
+    /**
+     *   EXAMPLE III: connecting to a device and disconnect again
      */
     func connectAndDisconnectForFun() {
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
@@ -73,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     /**
-     *   EXAMPLE III: switching on a crownstone
+     *   EXAMPLE IV: switching on a crownstone
      */
     func switchCrownstone() {
         // we return the promises so we can chain the then() calls.
@@ -83,6 +106,34 @@ class ViewController: UIViewController {
             .then({_ in return self.bluenet.disconnect()}) // disconnect
             .error({err in print("error in example 2 \(err)")}) // catch errors
     }
+    
+    
+    /**
+     *   EXAMPLE V: track an ibeacon UUID
+     */
+    func trackIBeacon() {
+        // listen to the ibeacon events that will be received
+        self.bluenetLocalization.on("iBeaconAdvertisement", {ibeaconData -> Void in
+            var stringArray = [JSON]()
+            if let data = ibeaconData as? [iBeaconPacket] {
+                for packet in data {
+                    stringArray.append(packet.getJSON())
+                }
+            }
+            print(stringArray)
+        })
+        
+        // track the ibeaconUUID
+        self.bluenetLocalization.trackUUID("ddb79713-87ca-4044-84f0-e87072db8106",groupId: "groupId")
+        
+    }
+    
+    
+    
+    
+    
+    
+    
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
