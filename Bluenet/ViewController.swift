@@ -36,24 +36,35 @@ class ViewController: UIViewController {
         self.bluenet = Bluenet();
         self.bluenetLocalization = BluenetLocalization();
         
-        let settings = BluenetSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls")
+        let settings = BluenetSettings(encryptionEnabled: true, adminKey: "32c7ce8f4b893b19080d9e79a9c22f1f", memberKey: "0c33ad0f252e01a0195948081e0cd5d0", guestKey: "3cd5a90170ba6538df24a02657345c5c")
         self.bluenet.setSettings(settings)
         
-        let crownstoneUUID_iphone5 = "4799DEE0-99F3-BB3A-EA62-E139EEB923FA"
-        let crownstoneUUID_iphone6s = ""
-        // scanForBleDevices()
-        // scanForCrownstones()
-        setupCrownstoneExample(crownstoneUUID_iphone5)
-         //testFactoryReset(crownstoneUUID_iphone5)
-        // setIBeaconUUID()
-//        reconnectExample(crownstoneUUID).error({err in print("end of line \(err)")})
+        scanForCrownstones()
+        
+//        let crownstoneUUID_iphone5 = "4CB3D0CC-FDA2-D5F7-51FC-6B9066611507"
+//        let crownstoneUUID_iphone6s = "53CCAD7C-EBA3-4E20-00E9-0D0BC41614DF"
+//
+//        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+//            .then({_ in self.bluenet.connect(crownstoneUUID_iphone6s)}) // once the lib is ready, start scanning
 
         
-        // self.setupCrownstoneExample(crownstoneUUID_iphone5) // first check if the bluenet lib is ready before using it for BLE things.
-//            .then({_ in self.bluenet.control.reset()}) // once the lib is ready, start scanning
-//            .then({_ in self.bluenet.control.disconnect()}) // once the lib is ready, start scanning
-//            .error({err in print("error in example I \(err)")}) // in case an error occurs, print it here.
-       
+        
+//        self.bluenet.isReady()
+//            .then({_ in self.bluenet.control.recoverByFactoryReset(crownstoneUUID_iphone6s)})
+//            .error({err in print("err \(err)")}) // once the lib is ready, start scanning
+//        self.scanForCrownstones(crownstoneUUID_iphone5);
+//        delay(5, {_ in
+//            print("Starting to connect and switch")
+//            self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+//                .then({_ in self.bluenet.connect(crownstoneUUID_iphone5)}) // once the lib is ready, start scanning
+//                .then({_ in self.bluenet.control.recoverByFactoryReset(crownstoneUUID_iphone5)}) // once the lib is ready, start scanning
+//                .then({_ in self.bluenet.control.disconnect()}) // once the lib is ready, start scanning
+//                .then({_ in print("DONE")}) // once the lib is ready, start scanning
+//                .error({err in print("err \(err)")}) // once the lib is ready, start scanning
+
+//        })
+        //
+//        self.setupCrownstoneExample(crownstoneUUID_iphone5)
         
         // we bind a listener to the UIApplicationDidBecomeActiveNotification event to check if the user successfully turned on Bluetooth in the settings. If not, we can annoy him.
         let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -62,25 +73,24 @@ class ViewController: UIViewController {
     }
 
    
-    func testFactoryReset(uuid: String) {
-        self.bluenet.settings.disableEncryptionTemporarily()
-        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
-                    .then({_ in self.bluenet.connect(uuid)}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.control.recoverByFactoryReset()}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.disconnect()}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.bleManager.waitToReconnect()}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.connect(uuid)}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.control.recoverByFactoryReset()}) // once the lib is ready, start scanning
-                    .then({_ in self.bluenet.disconnect()}) // once the lib is ready, start scanning
-                    .then({_ -> Void in self.bluenet.settings.restoreEncryption()})
-                    .error({err in print("error in example I \(err)")}) // in case an error occurs, print it here.
-
-    }
+//    func testFactoryReset(uuid: String) {
+//        self.bluenet.settings.disableEncryptionTemporarily()
+//        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+//                    .then({_ in self.bluenet.connect(uuid)}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.control.recoverByFactoryReset()}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.disconnect()}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.bleManager.waitToReconnect()}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.connect(uuid)}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.control.recoverByFactoryReset()}) // once the lib is ready, start scanning
+//                    .then({_ in self.bluenet.disconnect()}) // once the lib is ready, start scanning
+//                    .then({_ -> Void in self.bluenet.settings.restoreEncryption()})
+//                    .error({err in print("error in example I \(err)")}) // in case an error occurs, print it here.
+//
+//    }
     
     func setupCrownstoneExample(uuid: String) {
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
             .then({_ in self.bluenet.connect(uuid)}) // once the lib is ready, start scanning
-            .then({_ in self.bluenet.setup.getMACAddress()}) // once the lib is ready, start scanning
             .then({_ in self.bluenet.setup.setup(32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: 12324, ibeaconUUID: "b643423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)}) // once the lib is ready, start scanning
             .then({_ in print("DONE")})
             .error({err in
@@ -109,6 +119,32 @@ class ViewController: UIViewController {
             .error({err in print("error in example I \(err)")}) // in case an error occurs, print it here.
     }
     
+    /**
+     *   EXAMPLE I: Scanning for all BLE devices
+     *      The scanning will give us the peripheral UUIDs like "5F1534C4-37A6-9BB3-08F9-86E092AB19D7"
+     *      We will use this uuid in the next example.
+     */
+    func scanForCrownstonesUnique(filterUUID: String? = nil) {
+        // first we subscribe to the event that will tell us all about the scan results.
+        self.bluenet.on("advertisementData", {data -> Void in
+            if let castData = data as? Advertisement {
+                if (filterUUID != nil) {
+                    if (castData.handle == filterUUID) {
+                        print (castData.getJSON()); // print it to the console in JSON format
+                    }
+                }
+                else {
+                    print (castData.getJSON()); // print it to the console in JSON format
+                }
+            }
+        })
+        
+        // start the scanning
+        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
+            .then({_ in self.bluenet.startScanningForCrownstonesUniqueOnly()}) // once the lib is ready, start scanning
+            .error({err in print("error in example II \(err)")}) // in case an error occurs, print it here.
+
+    }
     
     /**
      *   EXAMPLE II: Scanning for all Crownstones
@@ -120,7 +156,7 @@ class ViewController: UIViewController {
         self.bluenet.on("advertisementData", {data -> Void in
             if let castData = data as? Advertisement {
                 if (filterUUID != nil) {
-                    if (castData.uuid == filterUUID) {
+                    if (castData.handle == filterUUID) {
                          print (castData.getJSON()); // print it to the console in JSON format
                     }
                 }
@@ -146,7 +182,7 @@ class ViewController: UIViewController {
         self.bluenet.on("verifiedAdvertisementData", {data -> Void in
             if let castData = data as? Advertisement {
                 if (filterUUID != nil) {
-                    if (castData.uuid == filterUUID) {
+                    if (castData.handle == filterUUID) {
                         print (castData.getJSON()); // print it to the console in JSON format
                     }
                 }
@@ -181,7 +217,7 @@ class ViewController: UIViewController {
         // we return the promises so we can chain the then() calls.
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
             .then({_ in return self.bluenet.connect("5F1534C4-37A6-9BB3-08F9-86E092AB19D7")}) // connect
-            .then({_ in return self.bluenet.control.setSwitchState(1)}) // switch
+            .then({_ in return self.bluenet.power.switchRelay(1)}) // switch
             .then({_ in return self.bluenet.disconnect()}) // disconnect
             .error({err in print("error in example IV \(err)")}) // catch errors
     }

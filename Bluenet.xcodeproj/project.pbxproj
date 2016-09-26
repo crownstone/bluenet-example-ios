@@ -14,16 +14,19 @@
 		FA3C19231CBBE1F300A11CF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3C19211CBBE1F300A11CF7 /* LaunchScreen.storyboard */; };
 		FA3C192E1CBBE1F400A11CF7 /* BluenetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C192D1CBBE1F400A11CF7 /* BluenetTests.swift */; };
 		FA3C19391CBBE1F400A11CF7 /* BluenetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C19381CBBE1F400A11CF7 /* BluenetUITests.swift */; };
-		FA6EC30D1D6211130081EAFE /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA6EC30F1D6211130081EAFE /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA6EC3111D6211130081EAFE /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA6EC3131D6211460081EAFE /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; };
-		FA6EC3141D6211460081EAFE /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; };
-		FA6EC3151D6211460081EAFE /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; };
 		FA6EC3171D6212290081EAFE /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; };
-		FA6EC3181D62122E0081EAFE /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; };
-		FA6EC3191D62122E0081EAFE /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAA9435B1D1069CA0043087C /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9435A1D1069CA0043087C /* JSONUtils.swift */; };
+		FACDBD561D7EC6B0005DEF91 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; };
+		FACDBD571D7EC6B0005DEF91 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; };
+		FACDBD581D7EC6B0005DEF91 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; };
+		FACDBD5A1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; };
+		FACDBD5B1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FACDBD5C1D7EC6DB005DEF91 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; };
+		FACDBD5D1D7EC6DB005DEF91 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FACDBD5E1D7EC6DB005DEF91 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; };
+		FACDBD5F1D7EC6DB005DEF91 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FACDBD601D7EC6DB005DEF91 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; };
+		FACDBD611D7EC6DB005DEF91 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,16 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FA3C19491CBBE2C400A11CF7 /* Embed Frameworks */ = {
+		FACDBD621D7EC6DB005DEF91 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FA6EC3191D62122E0081EAFE /* BluenetLibIOS.framework in Embed Frameworks */,
-				FA6EC3111D6211130081EAFE /* SwiftyJSON.framework in Embed Frameworks */,
-				FA6EC30F1D6211130081EAFE /* PromiseKit.framework in Embed Frameworks */,
-				FA6EC30D1D6211130081EAFE /* CryptoSwift.framework in Embed Frameworks */,
+				FACDBD611D7EC6DB005DEF91 /* SwiftyJSON.framework in Embed Frameworks */,
+				FACDBD5F1D7EC6DB005DEF91 /* PromiseKit.framework in Embed Frameworks */,
+				FACDBD5B1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Embed Frameworks */,
+				FACDBD5D1D7EC6DB005DEF91 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,11 +92,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACDBD601D7EC6DB005DEF91 /* SwiftyJSON.framework in Frameworks */,
+				FACDBD5E1D7EC6DB005DEF91 /* PromiseKit.framework in Frameworks */,
 				FA6EC3171D6212290081EAFE /* BluenetLibIOS.framework in Frameworks */,
-				FA6EC3181D62122E0081EAFE /* BluenetLibIOS.framework in Frameworks */,
-				FA6EC3131D6211460081EAFE /* CryptoSwift.framework in Frameworks */,
-				FA6EC3141D6211460081EAFE /* PromiseKit.framework in Frameworks */,
-				FA6EC3151D6211460081EAFE /* SwiftyJSON.framework in Frameworks */,
+				FACDBD5A1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Frameworks */,
+				FACDBD561D7EC6B0005DEF91 /* CryptoSwift.framework in Frameworks */,
+				FACDBD5C1D7EC6DB005DEF91 /* CryptoSwift.framework in Frameworks */,
+				FACDBD571D7EC6B0005DEF91 /* PromiseKit.framework in Frameworks */,
+				FACDBD581D7EC6B0005DEF91 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +189,7 @@
 				FA3C19111CBBE1F300A11CF7 /* Sources */,
 				FA3C19121CBBE1F300A11CF7 /* Frameworks */,
 				FA3C19131CBBE1F300A11CF7 /* Resources */,
-				FA3C19491CBBE2C400A11CF7 /* Embed Frameworks */,
+				FACDBD621D7EC6DB005DEF91 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
