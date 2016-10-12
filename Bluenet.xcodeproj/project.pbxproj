@@ -14,19 +14,15 @@
 		FA3C19231CBBE1F300A11CF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3C19211CBBE1F300A11CF7 /* LaunchScreen.storyboard */; };
 		FA3C192E1CBBE1F400A11CF7 /* BluenetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C192D1CBBE1F400A11CF7 /* BluenetTests.swift */; };
 		FA3C19391CBBE1F400A11CF7 /* BluenetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C19381CBBE1F400A11CF7 /* BluenetUITests.swift */; };
-		FA6EC3171D6212290081EAFE /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; };
+		FA6EBE311DA52384007A609D /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE2D1DA51D51007A609D /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA6EBE331DA52384007A609D /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE261DA51D3F007A609D /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA6EBE351DA52384007A609D /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE271DA51D3F007A609D /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA6EBE371DA52384007A609D /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE281DA51D3F007A609D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FA6EBE381DA525EE007A609D /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE2D1DA51D51007A609D /* BluenetLibIOS.framework */; };
+		FA6EBE391DA525EE007A609D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE261DA51D3F007A609D /* CryptoSwift.framework */; };
+		FA6EBE3A1DA525EE007A609D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE271DA51D3F007A609D /* PromiseKit.framework */; };
+		FA6EBE3B1DA525EE007A609D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EBE281DA51D3F007A609D /* SwiftyJSON.framework */; };
 		FAA9435B1D1069CA0043087C /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9435A1D1069CA0043087C /* JSONUtils.swift */; };
-		FACDBD561D7EC6B0005DEF91 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; };
-		FACDBD571D7EC6B0005DEF91 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; };
-		FACDBD581D7EC6B0005DEF91 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; };
-		FACDBD5A1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; };
-		FACDBD5B1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FACDBD5C1D7EC6DB005DEF91 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; };
-		FACDBD5D1D7EC6DB005DEF91 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FACDBD5E1D7EC6DB005DEF91 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; };
-		FACDBD5F1D7EC6DB005DEF91 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3041D62110E0081EAFE /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FACDBD601D7EC6DB005DEF91 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; };
-		FACDBD611D7EC6DB005DEF91 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +49,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FACDBD611D7EC6DB005DEF91 /* SwiftyJSON.framework in Embed Frameworks */,
-				FACDBD5F1D7EC6DB005DEF91 /* PromiseKit.framework in Embed Frameworks */,
-				FACDBD5B1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Embed Frameworks */,
-				FACDBD5D1D7EC6DB005DEF91 /* CryptoSwift.framework in Embed Frameworks */,
+				FA6EBE371DA52384007A609D /* SwiftyJSON.framework in Embed Frameworks */,
+				FA6EBE351DA52384007A609D /* PromiseKit.framework in Embed Frameworks */,
+				FA6EBE311DA52384007A609D /* BluenetLibIOS.framework in Embed Frameworks */,
+				FA6EBE331DA52384007A609D /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,10 +73,10 @@
 		FA3C19341CBBE1F400A11CF7 /* BluenetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BluenetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3C19381CBBE1F400A11CF7 /* BluenetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluenetUITests.swift; sourceTree = "<group>"; };
 		FA3C193A1CBBE1F400A11CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
-		FA6EC3041D62110E0081EAFE /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLibIOS.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/BluenetWorkspace-ctwjboexknfjsaemurnuvcntfmgk/Build/Products/Debug-iphoneos/BluenetLibIOS.framework"; sourceTree = "<group>"; };
+		FA6EBE261DA51D3F007A609D /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		FA6EBE271DA51D3F007A609D /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		FA6EBE281DA51D3F007A609D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		FA6EBE2D1DA51D51007A609D /* BluenetLibIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLibIOS.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/BluenetWorkspace-ctwjboexknfjsaemurnuvcntfmgk/Build/Products/Debug-iphoneos/BluenetLibIOS.framework"; sourceTree = "<group>"; };
 		FAA421801D0714A60053B335 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FAA9435A1D1069CA0043087C /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		FACC56381D18528900028E6F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -92,14 +88,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACDBD601D7EC6DB005DEF91 /* SwiftyJSON.framework in Frameworks */,
-				FACDBD5E1D7EC6DB005DEF91 /* PromiseKit.framework in Frameworks */,
-				FA6EC3171D6212290081EAFE /* BluenetLibIOS.framework in Frameworks */,
-				FACDBD5A1D7EC6DB005DEF91 /* BluenetLibIOS.framework in Frameworks */,
-				FACDBD561D7EC6B0005DEF91 /* CryptoSwift.framework in Frameworks */,
-				FACDBD5C1D7EC6DB005DEF91 /* CryptoSwift.framework in Frameworks */,
-				FACDBD571D7EC6B0005DEF91 /* PromiseKit.framework in Frameworks */,
-				FACDBD581D7EC6B0005DEF91 /* SwiftyJSON.framework in Frameworks */,
+				FA6EBE381DA525EE007A609D /* BluenetLibIOS.framework in Frameworks */,
+				FA6EBE391DA525EE007A609D /* CryptoSwift.framework in Frameworks */,
+				FA6EBE3A1DA525EE007A609D /* PromiseKit.framework in Frameworks */,
+				FA6EBE3B1DA525EE007A609D /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,10 +115,10 @@
 		FA3C190C1CBBE1F300A11CF7 = {
 			isa = PBXGroup;
 			children = (
-				FA6EC3161D6212290081EAFE /* BluenetLibIOS.framework */,
-				FA6EC3031D62110E0081EAFE /* CryptoSwift.framework */,
-				FA6EC3041D62110E0081EAFE /* PromiseKit.framework */,
-				FA6EC3051D62110E0081EAFE /* SwiftyJSON.framework */,
+				FA6EBE2D1DA51D51007A609D /* BluenetLibIOS.framework */,
+				FA6EBE261DA51D3F007A609D /* CryptoSwift.framework */,
+				FA6EBE271DA51D3F007A609D /* PromiseKit.framework */,
+				FA6EBE281DA51D3F007A609D /* SwiftyJSON.framework */,
 				FAA421801D0714A60053B335 /* Cartfile */,
 				FACC56381D18528900028E6F /* .gitignore */,
 				FACC56391D18529000028E6F /* README.md */,
@@ -243,19 +235,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Alex de Mulder";
 				TargetAttributes = {
 					FA3C19141CBBE1F300A11CF7 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 6LYJ9PNC3V;
+						LastSwiftMigration = 0800;
 					};
 					FA3C19281CBBE1F400A11CF7 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = FA3C19141CBBE1F300A11CF7;
 					};
 					FA3C19331CBBE1F400A11CF7 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = FA3C19141CBBE1F300A11CF7;
 					};
 				};
@@ -383,8 +378,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -429,8 +426,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -449,6 +448,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -469,6 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.Bluenet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -489,6 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.Bluenet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -501,6 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.BluenetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bluenet.app/Bluenet";
 			};
 			name = Debug;
@@ -513,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.BluenetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bluenet.app/Bluenet";
 			};
 			name = Release;
@@ -524,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.BluenetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Bluenet;
 			};
 			name = Debug;
@@ -535,6 +540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crownstone.BluenetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Bluenet;
 			};
 			name = Release;
