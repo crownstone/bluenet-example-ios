@@ -311,6 +311,9 @@ class ViewController: UIViewController {
         self.RelaySwitch.isEnabled = false
         self.pwmSlider.isEnabled = false
         
+        // temporary disable of encryption off switch
+        self.EncSwitch.isEnabled = false
+        
         scrollview.isScrollEnabled = true
         // Do any additional setup after loading the view
         scrollview.contentSize = CGSize(width: self.view.frame.width, height: 1200)
@@ -333,7 +336,7 @@ class ViewController: UIViewController {
                 self.label.text = "setupProgress \(castData)"
             }
         })
-        _ = self.bluenet.on("nearestItem", {data -> Void in
+        _ = self.bluenet.on("nearestCrownstone", {data -> Void in
             if let castData = data as? NearestItem {
                 self.lastStone = Date().timeIntervalSince1970
                 let dict = castData.getDictionary()
@@ -342,7 +345,7 @@ class ViewController: UIViewController {
                 self._evalLabels()
             }
         })
-        _ = self.bluenet.on("nearestCrownstone", {data -> Void in
+        _ = self.bluenet.on("nearestVerifiedCrownstone", {data -> Void in
             if let castData = data as? NearestItem {
                 self.lastValidatedStone = Date().timeIntervalSince1970
                 
@@ -352,13 +355,13 @@ class ViewController: UIViewController {
                 self._evalLabels()
             }
         })
-        _ = self.bluenet.on("nearestCrownstone", {data -> Void in
+        _ = self.bluenet.on("nearestSetupCrownstone", {data -> Void in
             if let castData = data as? NearestItem {
-                self.lastValidatedStone = Date().timeIntervalSince1970
+                self.lastSetup = Date().timeIntervalSince1970
                 
                 let dict = castData.getDictionary()
-                self.targetValidatedStoneHandle = dict["handle"] as? String
-                self.nearestValidated.text = "\(dict["name"]!) : \(dict["rssi"]!)"
+                self.targetSetupHandle = dict["handle"] as? String
+                self.nearestSetup.text = "\(dict["name"]!) : \(dict["rssi"]!)"
                 self._evalLabels()
             }
         })

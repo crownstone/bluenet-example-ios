@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Bluenet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CSDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -65,7 +65,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="kr3-ho-5eP"/>
                                                 </constraints>
-                                                <state key="normal" title="NearestSetup:">
+                                                <state key="normal" title="Nearest Setup:">
                                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -119,7 +119,7 @@
                                                     <action selector="touchRecovery:" destination="BYZ-38-t0r" eventType="touchDown" id="x9E-87-zoc"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PWM Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0V6-69-EFf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="PWM Period" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0V6-69-EFf">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -251,11 +251,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-Rm-yP7">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encryption:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db2-08-kjn">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="107" id="ldk-Rx-FCi"/>
@@ -272,7 +267,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Info of the process will be here" translatesAutoresizingMaskIntoConstraints="NO" id="5oB-jQ-21h">
                                         <color key="backgroundColor" red="0.92986965669999999" green="0.92986965669999999" blue="0.92986965669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="298" id="buS-tP-lRG"/>
                                             <constraint firstAttribute="height" constant="46" id="d8n-EH-BAb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -281,13 +275,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1bS-Rm-yP7" firstAttribute="leading" secondItem="kHA-Lv-cwk" secondAttribute="leading" constant="14" id="1D0-Tb-Suc"/>
                                     <constraint firstItem="EMh-jD-LLW" firstAttribute="top" secondItem="PUf-bn-VXM" secondAttribute="bottom" constant="14" id="3mu-b9-vaR"/>
-                                    <constraint firstItem="1bS-Rm-yP7" firstAttribute="top" secondItem="db2-08-kjn" secondAttribute="bottom" constant="21" id="7Vy-CA-ZKN"/>
                                     <constraint firstItem="PUf-bn-VXM" firstAttribute="top" secondItem="kHA-Lv-cwk" secondAttribute="top" constant="8" id="Byg-cr-Vz2"/>
+                                    <constraint firstItem="5oB-jQ-21h" firstAttribute="leading" secondItem="kHA-Lv-cwk" secondAttribute="leading" constant="10" id="J9f-h2-l0R"/>
                                     <constraint firstItem="PUf-bn-VXM" firstAttribute="top" secondItem="kHA-Lv-cwk" secondAttribute="top" constant="8" id="NHe-RY-euc"/>
                                     <constraint firstAttribute="height" constant="138" id="Pcg-pu-AsL"/>
-                                    <constraint firstAttribute="trailing" secondItem="5oB-jQ-21h" secondAttribute="trailing" constant="8" id="Qne-b6-Ebt"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="138" id="R2y-ar-bGn"/>
                                     <constraint firstItem="EMh-jD-LLW" firstAttribute="leading" secondItem="db2-08-kjn" secondAttribute="trailing" constant="8" id="Y69-Bs-WQK"/>
                                     <constraint firstAttribute="trailing" secondItem="PUf-bn-VXM" secondAttribute="trailing" constant="6" id="ZZN-9g-Qx4"/>
@@ -295,7 +287,7 @@
                                     <constraint firstItem="5oB-jQ-21h" firstAttribute="top" secondItem="EMh-jD-LLW" secondAttribute="bottom" constant="11" id="nEb-Uo-1mn"/>
                                     <constraint firstItem="PUf-bn-VXM" firstAttribute="leading" secondItem="kHA-Lv-cwk" secondAttribute="leading" constant="14" id="pdO-pe-cPJ"/>
                                     <constraint firstItem="db2-08-kjn" firstAttribute="top" secondItem="PUf-bn-VXM" secondAttribute="bottom" constant="19" id="tIo-RY-8zL"/>
-                                    <constraint firstItem="5oB-jQ-21h" firstAttribute="leading" secondItem="1bS-Rm-yP7" secondAttribute="trailing" constant="26" id="uuf-5g-chf"/>
+                                    <constraint firstAttribute="trailing" secondItem="5oB-jQ-21h" secondAttribute="trailing" constant="10" id="vlx-o1-Snv"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -327,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-615" y="-207"/>
+            <point key="canvasLocation" x="-615.20000000000005" y="-207.34632683658174"/>
         </scene>
     </scenes>
 </document>
