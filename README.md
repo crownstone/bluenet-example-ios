@@ -1,7 +1,7 @@
 # bluenet-example-ios
-A small clean project that uses the bluenet-ios-lib.
+A small project that uses the bluenet-ios-lib.
 
-This example only has a console interface so you can test the functions from bluenet directly in XCode.
+This example is an app we use for development. It has one view and uses many features of the BluenetLibIOS
 
 #### Important to note:
 The simulator does not support Bluetooth and navigation passthrough so you'll have to load it on an actual phone to see what's happening.
@@ -16,7 +16,7 @@ To get the Bluenet ios examples up and running, first you need to have Carthage 
 Once this is finished, run the following command in your terminal (in the same folder as the Cartfile)
 
 ```
-carthage update --platform ios
+carthage update --platform iOS
 ```
 
 All dependencies will then be downloaded, built and placed in a Carthage/Build folder.

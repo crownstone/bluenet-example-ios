@@ -108,11 +108,11 @@ class ViewController: UIViewController {
     @IBAction func EncryptionSwitch(_ sender: AnyObject) {
         if let mySwitch = sender as? UISwitch {
             if (mySwitch.isOn) {
-                self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls")
+                self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
                 label.text = "Toggled Encyrption On"
             }
             else {
-                self.bluenet.setSettings(encryptionEnabled: false, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls")
+                self.bluenet.setSettings(encryptionEnabled: false, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
                 label.text = "Toggled Encryption OFF"
             }
 
@@ -312,7 +312,7 @@ class ViewController: UIViewController {
         self.pwmSlider.isEnabled = false
         
         // temporary disable of encryption off switch
-        self.EncSwitch.isEnabled = false
+         self.EncSwitch.isEnabled = false
         
         scrollview.isScrollEnabled = true
         // Do any additional setup after loading the view
@@ -325,10 +325,8 @@ class ViewController: UIViewController {
         self.bluenet = Bluenet();
         self.bluenetLocalization = BluenetLocalization();
         
-        //self.bluenet.setSettings(encryptionEnabled: true, adminKey: "283400aacfe61e9873f9f911ad0eb9a7", memberKey: "de58c14a6aef9297b473994896545cbb", guestKey: "bd09dff63a0405b563e3c09f98e97732")
-        
         // default
-        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls")
+        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId: "test")
     
         
         _ = self.bluenet.on("setupProgress", {data -> Void in
@@ -365,10 +363,10 @@ class ViewController: UIViewController {
                 self._evalLabels()
             }
         })
-        
         _ = self.bluenet.on("advertisementData", {data -> Void in
             if let castData = data as? Advertisement {
                 let dict = castData.getDictionary()
+              
                 if (self.selectedHandle == dict["handle"] as? String) {
                     self.selectedTarget.text = "\(dict["name"]!) : \(dict["rssi"]!)"
                     
@@ -398,56 +396,11 @@ class ViewController: UIViewController {
             }
         })
         
-        
-        
-        
         self.bluenetLocalization.clearTrackedBeacons()
         _ = self.bluenet.isReady()
             .then{_ in self.bluenet.startScanningForCrownstones()}
         
-        self.bluenetLocalization.trackIBeacon("0724bd41-5905-41b3-8f26-55eceb3d0275", referenceId: "57f387e61153bd03000eb632")
-        
-        //self.scanForCrownstones()
-        
-//        trackIBeacon()
-//        let crownstoneUUID_iphone5 = "4CB3D0CC-FDA2-D5F7-51FC-6B9066611507"
-     
-        //self.setupCrownstoneExample(crownstoneUUID_iphone6s_superplug)
-        //self.trackIBeacon("a643423e-e175-4af0-a2e4-31e32f729a8a");
-        //self.putInDFUMode(crownstoneUUID_iphone6s_superplug)
-        
-        
-        //self.setupCrownstoneExample(crownstoneUUID_iphone6s)
-        
-        //self.bluenetLocalization.stopTrackingIBeacon("a643423e-e175-4af0-a2e4-31e32f729a8a")
-//        self.scanForVerifiedCrownstonesUnique()
-//
-//        self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
-//            .then({_ in self.bluenet.connect(crownstoneUUID_iphone6s)}) // once the lib is ready, start scanning
-
-        
-        
-//        self.bluenet.isReady()
-//            .then({_ in self.bluenet.control.recoverByFactoryReset(crownstoneUUID_iphone6s)})
-//            .error({err in print("err \(err)")}) // once the lib is ready, start scanning
-//        self.scanForCrownstones(crownstoneUUID_iphone5);
-//        delay(5, {_ in
-//            print("Starting to connect and switch")
-//            self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
-//                .then({_ in self.bluenet.connect(crownstoneUUID_iphone5)}) // once the lib is ready, start scanning
-//                .then({_ in self.bluenet.control.recoverByFactoryReset(crownstoneUUID_iphone5)}) // once the lib is ready, start scanning
-//                .then({_ in self.bluenet.control.disconnect()}) // once the lib is ready, start scanning
-//                .then({_ in print("DONE")}) // once the lib is ready, start scanning
-//                .error({err in print("err \(err)")}) // once the lib is ready, start scanning
-
-//        })
-        //
-//        self.setupCrownstoneExample(crownstoneUUID_iphone5)
-        
-        // we bind a listener to the UIApplicationDidBecomeActiveNotification event to check if the user successfully turned on Bluetooth in the settings. If not, we can annoy him.
-//        let notificationCenter = NotificationCenter.default
-//        notificationCenter.addObserver(self, selector: #selector(ViewController.appMovedToForeground), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        
+        self.bluenetLocalization.trackIBeacon(uuid: "b643423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
     }
 
     
@@ -468,8 +421,8 @@ class ViewController: UIViewController {
     
     func setupCrownstoneExample(_ uuid: String) {
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
-            .then{_ in self.bluenet.connect(uuid)} // once the lib is ready, start scanning
-            .then{_ in self.bluenet.setup.setup(32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: 12324, ibeaconUUID: "b643423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
+            .then{_ in return self.bluenet.connect(uuid)} // once the lib is ready, start scanning
+            .then{_ in self.bluenet.setup.setup(crownstoneId: 32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: 12324, ibeaconUUID: "b643423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
             .then{_ -> Void in
                 self.label.text = "SETUP COMPLETE"
                 print("DONE")
@@ -659,7 +612,7 @@ class ViewController: UIViewController {
         })
         
         // track the ibeaconUUID
-        self.bluenetLocalization.trackIBeacon(uuid, referenceId: "ref")
+        self.bluenetLocalization.trackIBeacon(uuid: uuid, referenceId: "ref")
     }
     
     
