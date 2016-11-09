@@ -57,6 +57,193 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scanDuration: UITextField!
+    @IBAction func putScanDuration(_ sender: Any) {
+        if (target != nil) {
+            if (scanDuration.text != nil) {
+                let scanDurationInt = Int(scanDuration.text!)
+                if (scanDurationInt != nil) {
+                    if (scanDurationInt! > 0) {
+                        let scanDurationNS = NSNumber(value: scanDurationInt!)
+                        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+                            .then{_ in return self.bluenet.connect(self.target!)} // connect
+                            .then{_ in return self.bluenet.config.setScanDuration(scanDurationNS)} // switch
+                            .then{_ in return self.bluenet.control.disconnect()} // disconnect
+                            .then{_ in self.label.text = "DONE setting setScanDuration to \(scanDurationNS)"}
+                            .catch{err in
+                                _ = self.bluenet.disconnect()
+                                self.label.text = "\(err)"
+                        } // catch errors
+                        label.text = "Putting scanDuration"
+                    }
+                    else {
+                        label.text = "invalid scanDuration"
+                    }
+                }
+                else {
+                    label.text = "invalid scanDuration"
+                }
+                
+            }
+            else {
+                label.text = "no Scan Duration given"
+            }
+        }
+        else {
+            label.text = "no target"
+        }
+
+    }
+    
+    @IBOutlet weak var scanSendDelay: UITextField!
+    @IBAction func putScanSendDelay(_ sender: Any) {
+        if (target != nil) {
+            if (scanSendDelay.text != nil) {
+                let scanSendDelayInt = Int(scanSendDelay.text!)
+                if (scanSendDelayInt != nil) {
+                    if (scanSendDelayInt! > 0) {
+                        let scanSendDelayNS = NSNumber(value: scanSendDelayInt!)
+                        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+                            .then{_ in return self.bluenet.connect(self.target!)} // connect
+                            .then{_ in return self.bluenet.config.setScanSendDelay(scanSendDelayNS)} // switch
+                            .then{_ in return self.bluenet.control.disconnect()} // disconnect
+                            .then{_ in self.label.text = "DONE setting setScanDelay to \(scanSendDelayNS)"}
+                            .catch{err in
+                                _ = self.bluenet.disconnect()
+                                self.label.text = "\(err)"
+                        } // catch errors
+                        label.text = "Putting setScanDelay"
+                    }
+                    else {
+                        label.text = "invalid setScanDelay"
+                    }
+                }
+                else {
+                    label.text = "invalid setScanDelay"
+                }
+                
+            }
+            else {
+                label.text = "no Scan Delay given"
+            }
+        }
+        else {
+            label.text = "no target"
+        }
+    }
+    
+    @IBOutlet weak var scanBreakDuration: UITextField!
+    @IBAction func putScanBreakDuration(_ sender: Any) {
+        if (target != nil) {
+            if (scanBreakDuration.text != nil) {
+                let scanBreakDurationInt = Int(scanBreakDuration.text!)
+                if (scanBreakDurationInt != nil) {
+                    if (scanBreakDurationInt! > 0) {
+                        let scanBreakDurationNS = NSNumber(value: scanBreakDurationInt!)
+                        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+                            .then{_ in return self.bluenet.connect(self.target!)} // connect
+                            .then{_ in return self.bluenet.config.setScanBreakDuration(scanBreakDurationNS)} // switch
+                            .then{_ in return self.bluenet.control.disconnect()} // disconnect
+                            .then{_ in self.label.text = "DONE setting setScanFilterDuration to \(scanBreakDurationNS)"}
+                            .catch{err in
+                                _ = self.bluenet.disconnect()
+                                self.label.text = "\(err)"
+                        } // catch errors
+                        label.text = "Putting setScanFilterDuration"
+                    }
+                    else {
+                        label.text = "invalid setScanFilterDuration"
+                    }
+                }
+                else {
+                    label.text = "invalid setScanFilterDuration"
+                }
+                
+            }
+            else {
+                label.text = "no scan filter duration given"
+            }
+        }
+        else {
+            label.text = "no target"
+        }
+    }
+    
+    @IBOutlet weak var scanFilter: UITextField!
+    @IBAction func putScanFilter(_ sender: Any) {
+        if (target != nil) {
+            if (scanFilter.text != nil) {
+                let scanFilterInt = Int(scanFilter.text!)
+                if (scanFilterInt != nil) {
+                    if (scanFilterInt! > 0 && scanFilterInt! < 4) {
+                        let scanFilterNS = NSNumber(value: scanFilterInt!)
+                        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+                            .then{_ in return self.bluenet.connect(self.target!)} // connect
+                            .then{_ in return self.bluenet.config.setScanFilter(scanFilterNS)} // switch
+                            .then{_ in return self.bluenet.control.disconnect()} // disconnect
+                            .then{_ in self.label.text = "DONE setting setScanFilter to \(scanFilterNS)"}
+                            .catch{err in
+                                _ = self.bluenet.disconnect()
+                                self.label.text = "\(err)"
+                        } // catch errors
+                        label.text = "Putting scanFilter"
+                    }
+                    else {
+                        label.text = "invalid scanFilter"
+                    }
+                }
+                else {
+                    label.text = "invalid scanFilter"
+                }
+                
+            }
+            else {
+                label.text = "no scan filter given"
+            }
+        }
+        else {
+            label.text = "no target"
+        }
+    }
+    
+    
+    @IBOutlet weak var scanFilterFraction: UITextField!
+    @IBAction func putScanFilterFraction(_ sender: Any) {
+        if (target != nil) {
+            if (scanFilterFraction.text != nil) {
+                let scanFilterFractionInt = Int(scanFilterFraction.text!)
+                if (scanFilterFractionInt != nil) {
+                    if (scanFilterFractionInt! > 0) {
+                        let scanFilterFractionNS = NSNumber(value: scanFilterFractionInt!)
+                        self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
+                            .then{_ in return self.bluenet.connect(self.target!)} // connect
+                            .then{_ in return self.bluenet.config.setScanFilterFraction(scanFilterFractionNS)} // switch
+                            .then{_ in return self.bluenet.control.disconnect()} // disconnect
+                            .then{_ in self.label.text = "DONE setting scanFilterFractionNS to \(scanFilterFractionNS)"}
+                            .catch{err in
+                                _ = self.bluenet.disconnect()
+                                self.label.text = "\(err)"
+                        } // catch errors
+                        label.text = "Putting scanFilterFractionNS"
+                    }
+                    else {
+                        label.text = "invalid scanFilterFractionNS"
+                    }
+                }
+                else {
+                    label.text = "invalid scanFilterFractionNS"
+                }
+                
+            }
+            else {
+                label.text = "no scan filter fraction given"
+            }
+        }
+        else {
+            label.text = "no target"
+        }
+    }
+    
    
     @IBAction func targetSetup(_ sender: AnyObject) {
         if (targetSetupHandle != nil) {
@@ -109,7 +296,7 @@ class ViewController: UIViewController {
         if let mySwitch = sender as? UISwitch {
             if (mySwitch.isOn) {
                 self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
-                label.text = "Toggled Encyrption On"
+                label.text = "Toggled Encryption On"
             }
             else {
                 self.bluenet.setSettings(encryptionEnabled: false, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
@@ -295,6 +482,27 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var adminkey: UITextField!
+    @IBOutlet weak var guestkey: UITextField!
+    @IBAction func putSettings(_ sender: Any) {
+        if (target != nil) {
+            label.text = "Setting Settings"
+            self.bluenet.setSettings(encryptionEnabled: true, adminKey: adminkey.text, memberKey: nil, guestKey: guestkey.text, referenceId: "test")
+        }
+        else {
+            label.text = "no target"
+        }
+    }
+    
+    
+    @IBAction func revertDevKeys(_ sender: Any) {
+        self._revertDevKeys()
+        label.text = "Setting Settings to dev standard"
+    }
+    
+    func _revertDevKeys() {
+        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId: "test")
+    }
     
     func startLoop() {
         delay(2, { _ in
@@ -312,11 +520,11 @@ class ViewController: UIViewController {
         self.pwmSlider.isEnabled = false
         
         // temporary disable of encryption off switch
-         self.EncSwitch.isEnabled = false
+        // self.EncSwitch.isEnabled = false
         
         scrollview.isScrollEnabled = true
         // Do any additional setup after loading the view
-        scrollview.contentSize = CGSize(width: self.view.frame.width, height: 1200)
+        scrollview.contentSize = CGSize(width: self.view.frame.width, height: 1800)
         
         self.startLoop()
         // important, set the viewcontroller and the appname in the library so we can trigger 
@@ -326,7 +534,7 @@ class ViewController: UIViewController {
         self.bluenetLocalization = BluenetLocalization();
         
         // default
-        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId: "test")
+        self._revertDevKeys()
     
         
         _ = self.bluenet.on("setupProgress", {data -> Void in
