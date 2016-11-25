@@ -13,8 +13,6 @@ import CoreBluetooth
 import PromiseKit
 
 class ViewController: UIViewController {
-    
-    
     var target : String? = nil
     var targetStoneHandle : String? = nil
     var targetSetupHandle : String? = nil
@@ -308,12 +306,12 @@ class ViewController: UIViewController {
     @IBAction func pwm(_ sender: AnyObject) {
         if let slider = sender as? UISlider {
             //label.text = "not added yet: \(slider.value)"
-            let value : NSNumber = NSNumber(value: slider.value*100.0)
+            let value : Float = NSNumber(value: slider.value).floatValue
             if (target != nil) {
                 // we return the promises so we can chain the then() calls.
                 self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
                     .then{_ in return self.bluenet.connect(self.target!)} // connect
-                    .then{_ in return self.bluenet.power.switchPWM(value.uint8Value)} // switch
+                    .then{_ in return self.bluenet.control.switchPWM(value)} // switch
                     .then{_ in return self.bluenet.control.disconnect()} // disconnect
                     .then{_ in self.label.text = "DONE switching PWM to \(value)"}
                     .catch{err in
@@ -450,7 +448,7 @@ class ViewController: UIViewController {
             // we return the promises so we can chain the then() calls.
             self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
                 .then{_ in return self.bluenet.connect(self.target!)} // connect
-                .then{_ in return self.bluenet.power.switchRelay(1)} // switch
+                .then{_ in return self.bluenet.control.switchRelay(1)} // switch
                 .then{_ in return self.bluenet.control.disconnect()} // disconnect
                 .then{_ in self.label.text = "DONE switching relay on"}
                 .catch{err in
@@ -468,14 +466,14 @@ class ViewController: UIViewController {
             // we return the promises so we can chain the then() calls.
             self.bluenet.isReady() // first check if the bluenet lib is ready before using it.
                 .then{_ in return self.bluenet.connect(self.target!)} // connect
-                .then{_ in return self.bluenet.power.switchRelay(0)} // switch
+                .then{_ in return self.bluenet.control.switchRelay(0)} // switch
                 .then{_ in return self.bluenet.control.disconnect()} // disconnect
                 .then{_ in self.label.text = "DONE switching relay off"}
                 .catch{err in
                     _ = self.bluenet.disconnect()
                     self.label.text = "\(err)"
             } // catch errors
-            label.text = "switchRelayOn"
+            label.text = "switchRelayOff"
         }
         else {
             label.text = "no target"
@@ -505,7 +503,7 @@ class ViewController: UIViewController {
     }
     
     func startLoop() {
-        delay(2, { _ in
+        delay(0.5, { _ in
             self._evalLabels()
             self.startLoop()
         })
@@ -536,6 +534,30 @@ class ViewController: UIViewController {
         // default
         self._revertDevKeys()
     
+        
+        // forward the navigation event stream to react native
+        _ = self.bluenetLocalization.on("iBeaconAdvertisement", {ibeaconData -> Void in
+            var returnArray = [NSDictionary]()
+            if let data = ibeaconData as? [iBeaconPacket] {
+                for packet in data {
+                    returnArray.append(packet.getDictionary())
+                }
+            }
+            print("IBEACON message")
+        })
+        
+        
+        
+        _ = self.bluenetLocalization.on("lowLevelEnterRegion", {data -> Void in
+            if let castData = data as? String {
+                print("$$$ lowLevelEnterRegion \(castData)")
+            }
+        })
+         _ = self.bluenetLocalization.on("lowLevelExitRegion", {data -> Void in
+            if let castData = data as? String {
+                print("$$$ lowLevelExitRegion \(castData)")
+            }
+        })
         
         _ = self.bluenet.on("setupProgress", {data -> Void in
             if let castData = data as? Int {
@@ -608,7 +630,7 @@ class ViewController: UIViewController {
         _ = self.bluenet.isReady()
             .then{_ in self.bluenet.startScanningForCrownstones()}
         
-        self.bluenetLocalization.trackIBeacon(uuid: "b643423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
+//        self.bluenetLocalization.trackIBeacon(uuid: "b843423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
     }
 
     
@@ -630,7 +652,7 @@ class ViewController: UIViewController {
     func setupCrownstoneExample(_ uuid: String) {
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
             .then{_ in return self.bluenet.connect(uuid)} // once the lib is ready, start scanning
-            .then{_ in self.bluenet.setup.setup(crownstoneId: 32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: 12324, ibeaconUUID: "b643423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
+            .then{_ in self.bluenet.setup.setup(crownstoneId: 32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: "4f745905", ibeaconUUID: "b843423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
             .then{_ -> Void in
                 self.label.text = "SETUP COMPLETE"
                 print("DONE")
