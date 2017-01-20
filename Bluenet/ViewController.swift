@@ -405,6 +405,7 @@ class ViewController: UIViewController {
     
     var bluenet : Bluenet!
     var bluenetLocalization : BluenetLocalization!
+    var bluenetMotion : BluenetMotion!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -509,6 +510,9 @@ class ViewController: UIViewController {
         })
     }
     
+    @IBOutlet weak var CountingLabelReference: UILabel!
+    var counter = 0
+    
     override func viewDidAppear(_ animated: Bool) {
         self.nearestSetup.text = "None found"
         self.nearestStone.text = "None found"
@@ -527,9 +531,10 @@ class ViewController: UIViewController {
         self.startLoop()
         // important, set the viewcontroller and the appname in the library so we can trigger 
         // alerts for bluetooth and navigation usage.
-        BluenetLibIOS.setBluenetGlobals(viewController: self, appName: "Crownstone")
-        self.bluenet = Bluenet();
-        self.bluenetLocalization = BluenetLocalization();
+        BluenetLibIOS.setBluenetGlobals(viewController: self, appName: "Crownstone", loggingFile: true)
+        self.bluenet = Bluenet()
+        self.bluenetLocalization = BluenetLocalization()
+        self.bluenetMotion = BluenetMotion()
         
         // default
         self._revertDevKeys()
@@ -543,7 +548,8 @@ class ViewController: UIViewController {
                     returnArray.append(packet.getDictionary())
                 }
             }
-            print("IBEACON message")
+            self.counter = self.counter + 1
+            self.CountingLabelReference.text = "\(self.counter) + \(self.bluenetLocalization.indoorLocalizationEnabled)"
         })
         
         
@@ -630,7 +636,8 @@ class ViewController: UIViewController {
         _ = self.bluenet.isReady()
             .then{_ in self.bluenet.startScanningForCrownstones()}
         
-//        self.bluenetLocalization.trackIBeacon(uuid: "b843423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
+        self.bluenetLocalization.startIndoorLocalization();
+        self.bluenetLocalization.trackIBeacon(uuid: "1843423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
     }
 
     
@@ -652,7 +659,7 @@ class ViewController: UIViewController {
     func setupCrownstoneExample(_ uuid: String) {
         self.bluenet.isReady() // first check if the bluenet lib is ready before using it for BLE things.
             .then{_ in return self.bluenet.connect(uuid)} // once the lib is ready, start scanning
-            .then{_ in self.bluenet.setup.setup(crownstoneId: 32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: "4f745905", ibeaconUUID: "b843423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
+            .then{_ in self.bluenet.setup.setup(crownstoneId: 32, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", meshAccessAddress: "4f745905", ibeaconUUID: "1843423e-e175-4af0-a2e4-31e32f729a8a", ibeaconMajor: 123, ibeaconMinor: 456)} // once the lib is ready, start scanning
             .then{_ -> Void in
                 self.label.text = "SETUP COMPLETE"
                 print("DONE")

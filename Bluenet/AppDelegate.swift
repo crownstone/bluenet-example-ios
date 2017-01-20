@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BluenetLibIOS
+//import BluenetLibIOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
