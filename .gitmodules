@@ -7,9 +7,6 @@
 [submodule "Carthage/Checkouts/SwiftyJSON"]
 	path = Carthage/Checkouts/SwiftyJSON
 	url = https://github.com/SwiftyJSON/SwiftyJSON.git
-[submodule "Carthage/Checkouts/Zip"]
-	path = Carthage/Checkouts/Zip
-	url = https://github.com/marmelroy/Zip.git
 [submodule "Carthage/Checkouts/IOS-Pods-DFU-Library"]
 	path = Carthage/Checkouts/IOS-Pods-DFU-Library
 	url = https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library.git
