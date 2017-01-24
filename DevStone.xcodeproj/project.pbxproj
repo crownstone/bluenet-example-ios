@@ -165,6 +165,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA3C193D1CBBE1F400A11CF7 /* Build configuration list for PBXNativeTarget "DevStone" */;
 			buildPhases = (
+				FA6F85531E375C2C00F91B71 /* ShellScript */,
 				FA3C19111CBBE1F300A11CF7 /* Sources */,
 				FA3C19121CBBE1F300A11CF7 /* Frameworks */,
 				FA3C19131CBBE1F300A11CF7 /* Resources */,
@@ -301,7 +302,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/iOSDFULibrary.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/BluenetLibIOS.framework",
+				"/Users/alex/Library/Developer/Xcode/DerivedData/BluenetWorkspace-ctwjboexknfjsaemurnuvcntfmgk/Build/Products/Debug-iphoneos/BluenetLibIOS.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 			);
 			outputPaths = (
@@ -309,6 +310,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		FA6F85531E375C2C00F91B71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf ./Carthage/Checkouts";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -571,7 +585,7 @@
 				FA3C193C1CBBE1F400A11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA3C193D1CBBE1F400A11CF7 /* Build configuration list for PBXNativeTarget "DevStone" */ = {
 			isa = XCConfigurationList;
@@ -580,7 +594,7 @@
 				FA3C193F1CBBE1F400A11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA3C19401CBBE1F400A11CF7 /* Build configuration list for PBXNativeTarget "DevStoneTests" */ = {
 			isa = XCConfigurationList;
@@ -589,7 +603,7 @@
 				FA3C19421CBBE1F400A11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA3C19431CBBE1F400A11CF7 /* Build configuration list for PBXNativeTarget "DevStoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -598,7 +612,7 @@
 				FA3C19451CBBE1F400A11CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

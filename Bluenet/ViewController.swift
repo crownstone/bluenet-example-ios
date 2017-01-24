@@ -534,7 +534,9 @@ class ViewController: UIViewController {
         BluenetLibIOS.setBluenetGlobals(viewController: self, appName: "Crownstone", loggingFile: true)
         self.bluenet = Bluenet()
         self.bluenetLocalization = BluenetLocalization()
-        self.bluenetMotion = BluenetMotion()
+        
+        
+        //self.bluenetMotion = BluenetMotion()
         
         // default
         self._revertDevKeys()
@@ -632,7 +634,7 @@ class ViewController: UIViewController {
             }
         })
         
-        self.bluenetLocalization.clearTrackedBeacons()
+        //self.bluenetLocalization.clearTrackedBeacons()
         _ = self.bluenet.isReady()
             .then{_ in self.bluenet.startScanningForCrownstones()}
         
