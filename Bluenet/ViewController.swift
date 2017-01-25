@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import BluenetLibIOS
+import BluenetLib
 import SwiftyJSON
 import CoreBluetooth
 import PromiseKit
+
 
 class ViewController: UIViewController {
     var target : String? = nil
@@ -293,11 +294,11 @@ class ViewController: UIViewController {
     @IBAction func EncryptionSwitch(_ sender: AnyObject) {
         if let mySwitch = sender as? UISwitch {
             if (mySwitch.isOn) {
-                self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
+                self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", collectionId:"test")
                 label.text = "Toggled Encryption On"
             }
             else {
-                self.bluenet.setSettings(encryptionEnabled: false, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId:"test")
+                self.bluenet.setSettings(encryptionEnabled: false, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", collectionId:"test")
                 label.text = "Toggled Encryption OFF"
             }
 
@@ -417,8 +418,8 @@ class ViewController: UIViewController {
         
 //        scrollview.contentSize = CGSize(width: self.view.frame.width, height: 1200)
         
-        print("contnetSize \(self.view.frame.width)")
-         print("view start created")
+        print("contentSize \(self.view.frame.width)")
+        print("view start created")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -486,7 +487,7 @@ class ViewController: UIViewController {
     @IBAction func putSettings(_ sender: Any) {
         if (target != nil) {
             label.text = "Setting Settings"
-            self.bluenet.setSettings(encryptionEnabled: true, adminKey: adminkey.text, memberKey: nil, guestKey: guestkey.text, referenceId: "test")
+            self.bluenet.setSettings(encryptionEnabled: true, adminKey: adminkey.text, memberKey: nil, guestKey: guestkey.text, collectionId: "test")
         }
         else {
             label.text = "no target"
@@ -500,7 +501,7 @@ class ViewController: UIViewController {
     }
     
     func _revertDevKeys() {
-        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", referenceId: "test")
+        self.bluenet.setSettings(encryptionEnabled: true, adminKey: "adminKeyForCrown", memberKey: "memberKeyForHome", guestKey: "guestKeyForGirls", collectionId: "test")
     }
     
     func startLoop() {
@@ -531,11 +532,9 @@ class ViewController: UIViewController {
         self.startLoop()
         // important, set the viewcontroller and the appname in the library so we can trigger 
         // alerts for bluetooth and navigation usage.
-        BluenetLibIOS.setBluenetGlobals(viewController: self, appName: "Crownstone", loggingFile: true)
+        BluenetLib.setBluenetGlobals(viewController: self, appName: "Crownstone", loggingFile: true)
         self.bluenet = Bluenet()
         self.bluenetLocalization = BluenetLocalization()
-        
-        
         //self.bluenetMotion = BluenetMotion()
         
         // default
@@ -639,7 +638,7 @@ class ViewController: UIViewController {
             .then{_ in self.bluenet.startScanningForCrownstones()}
         
         self.bluenetLocalization.startIndoorLocalization();
-        self.bluenetLocalization.trackIBeacon(uuid: "1843423e-e175-4af0-a2e4-31e32f729a8a", referenceId: "57f387e61153bd03000eb632")
+        self.bluenetLocalization.trackIBeacon(uuid: "1843423e-e175-4af0-a2e4-31e32f729a8a", collectionId: "57f387e61153bd03000eb632")
     }
 
     
@@ -851,7 +850,7 @@ class ViewController: UIViewController {
         })
         
         // track the ibeaconUUID
-        self.bluenetLocalization.trackIBeacon(uuid: uuid, referenceId: "ref")
+        self.bluenetLocalization.trackIBeacon(uuid: uuid, collectionId: "ref")
     }
     
     
