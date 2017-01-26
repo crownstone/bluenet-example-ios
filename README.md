@@ -1,8 +1,8 @@
-# bluenet-example-ios
+# bluenet-ios-dev
 
-A Crownstone test app that uses the bluenet-ios-lib.
+A Crownstone development app that uses the bluenet-ios-lib.
 
-This example has a GUI so you can test some functions from bluenet directly. It is an app we use for development. It has one view and uses many features of the BluenetLibIOS.
+This app has a GUI so you can test some functions from bluenet directly. It is an app we use for development. It has one view and uses many features of the BluenetLibIOS.
 
 
 #### Important to note:
