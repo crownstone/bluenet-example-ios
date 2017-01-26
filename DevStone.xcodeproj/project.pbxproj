@@ -18,6 +18,7 @@
 		FA3C19391CBBE1F400A11CF7 /* BluenetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C19381CBBE1F400A11CF7 /* BluenetUITests.swift */; };
 		FA58830B1E38F9F200913AE6 /* BluenetLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5883091E38F9F200913AE6 /* BluenetLib.framework */; };
 		FA58830C1E38F9F200913AE6 /* BluenetShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA58830A1E38F9F200913AE6 /* BluenetShared.framework */; };
+		FA5883141E39186B00913AE6 /* BluenetBasicLocalization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5883131E39186B00913AE6 /* BluenetBasicLocalization.framework */; };
 		FAA9435B1D1069CA0043087C /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9435A1D1069CA0043087C /* JSONUtils.swift */; };
 		FAF675191DB6746F002BB1CA /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF675151DB6746F002BB1CA /* CryptoSwift.framework */; };
 		FAF6751A1DB6746F002BB1CA /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF675161DB6746F002BB1CA /* PromiseKit.framework */; };
@@ -59,6 +60,7 @@
 		FA3C193A1CBBE1F400A11CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5883091E38F9F200913AE6 /* BluenetLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetLib.framework; path = Carthage/Build/iOS/BluenetLib.framework; sourceTree = "<group>"; };
 		FA58830A1E38F9F200913AE6 /* BluenetShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetShared.framework; path = Carthage/Build/iOS/BluenetShared.framework; sourceTree = "<group>"; };
+		FA5883131E39186B00913AE6 /* BluenetBasicLocalization.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BluenetBasicLocalization.framework; path = Carthage/Build/iOS/BluenetBasicLocalization.framework; sourceTree = "<group>"; };
 		FAA421801D0714A60053B335 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FAA9435A1D1069CA0043087C /* JSONUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		FACC56381D18528900028E6F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5883141E39186B00913AE6 /* BluenetBasicLocalization.framework in Frameworks */,
 				FAF6751B1DB6746F002BB1CA /* SwiftyJSON.framework in Frameworks */,
 				FAF6751A1DB6746F002BB1CA /* PromiseKit.framework in Frameworks */,
 				FA58830B1E38F9F200913AE6 /* BluenetLib.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		FA3C190C1CBBE1F300A11CF7 = {
 			isa = PBXGroup;
 			children = (
+				FA5883131E39186B00913AE6 /* BluenetBasicLocalization.framework */,
 				FA5883091E38F9F200913AE6 /* BluenetLib.framework */,
 				FA58830A1E38F9F200913AE6 /* BluenetShared.framework */,
 				FA30BFFE1E32889700036C9D /* Zip.framework */,
@@ -305,9 +309,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/iOSDFULibrary.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/BluenetLib.framework",
+				"/Users/alex/Library/Developer/Xcode/DerivedData/BluenetWorkspace-ctwjboexknfjsaemurnuvcntfmgk/Build/Products/Debug-iphoneos/BluenetLib.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Zip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/BluenetShared.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BluenetBasicLocalization.framework",
 			);
 			outputPaths = (
 			);
