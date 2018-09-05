@@ -1,5 +1,7 @@
 # bluenet-ios-dev
 
+# UNSUPPORTED, USED FOR DEV ONLY
+
 A Crownstone development app that uses the bluenet-ios-lib.
 
 This app has a GUI so you can test some functions from bluenet directly. It is an app we use for development. It has one view and uses many features of the BluenetLibIOS.
